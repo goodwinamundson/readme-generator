@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-const util = require('util');
 
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('../Develop/utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = () => {
+return inquirer.prompt([
     {
         type: 'input',
         name: 'username',
@@ -16,19 +16,6 @@ const questions = [
             return true;
           } else {
             console.log('Please enter your username!');
-            return false;
-          }
-        }
-    },
-    {
-        type: 'input',
-        name: 'repoName',
-        message: 'What is your the name of your repository? (Required)',
-        validate: repoNameInput => {
-          if (repoNameInput) {
-            return true;
-          } else {
-            console.log('Please enter the the name of your repository!');
             return false;
           }
         }
@@ -80,7 +67,7 @@ const questions = [
         type: 'checkbox',
         name: 'license',
         message: 'What licensing did you use?',
-        choices: []
+        choices: ["MIT", "Apache 2.0", "GNU GPLv3", "None"]
       },
       {
         type: 'confirm',
@@ -113,7 +100,37 @@ const questions = [
       },
       
 
-];
+]);
+};
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data)
+// function to write README file using file system 
+const writeFile = data => {
+    fs.writeFile('README.md', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the README has been created 
+        } else {
+            console.log("Your README has been successfully created!")
+        }
+    })
+}; 
+
+// function call to initialize program
+questions()
+// getting user answers 
+.then(answers => {
+    return generateMarkdown(answers);
+})
+// using data to display on page 
+.then(data => {
+    return writeFile(data);
+})
+// catching errors 
+.catch(err => {
+    console.log(err)
+})
+
+
+
