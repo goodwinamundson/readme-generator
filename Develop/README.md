@@ -1,9 +1,9 @@
-# Professional Readme Generator
+# Professional Readme.md Generator
 
-  ![None]()
+
 
   ### Description 
-  The purpose of this project is to create an app that can be downloaded from the internet and run on a user's computer to generate a readme.md out of the information taken from a series of prompts.
+  The purpose of this project was to create an app that could be downloaded on the users computer and then compile the answers after a series of prompts into a README.md file
 
 
   ## Table of Contents
@@ -16,15 +16,43 @@
   
   
   ## Installation 
-  Step 1: go to the page where the project is hosted Step 2: click Fork and fork th project to your account Step 3: Copy the url of the project Step 4:navigate to the directory you would like to clone the project in step 5: in the terminal typ 'git clone' and the url step 6: go to the develop folder in terminal step 7: install inquirer with the commad npm install
+  Step 1: Install node on your computer
+
+
+  Step 2: copy the url of this repository
+
+
+  Step 3: Type git clone and the url you just copied into the terminal
+  ```
+  git clone [url]
+  ```
+Step 4: type npm install into the commad line
+```
+npm install
+```
 
 
   ## Usage 
-  to run the program type node index.js into the command line
+  Step 1: Navigate to the Develop folder and then in the command line type 
+  ```
+  node index.js
+  ```
+
+  Step 2: Answer the prompts as they appear
+
+  Step 3: Open VS code with the command:
+  ```
+  code .
+  ```
+
+
+  Step 4: Open the README.md file 
+
+  ![Gif demo of README-generator](video-walkthrough.gif)
 
 
   ## License 
-  ![None]() 
+ 
 
 
   ## Contribute
@@ -32,8 +60,8 @@
 
 
   ## Tests
-  undefined
+  
 
 
   ## Questions
-  For any questions about this project, contact me at goodiwnamundson@gmail.com. Or on github https://github.com/goodwinamundson.
+  For any questions about this project, contact me at goodwinamundson@gmail.com. Or on github https://github.com/goodwinamundson.
