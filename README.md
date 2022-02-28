@@ -48,7 +48,7 @@ npm install
 
   Step 4: Open the README.md file 
 
-  ![Gif demo of README-generator](video-walkthrough.gif)
+  ![Gif demo of README-generator](../develop/video-walkthrough.gif)
 
 
   ## License 
