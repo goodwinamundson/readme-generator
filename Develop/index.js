@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs');
-
 const generateMarkdown = require('../Develop/utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
@@ -67,7 +66,7 @@ return inquirer.prompt([
         type: 'checkbox',
         name: 'license',
         message: 'What licensing did you use?',
-        choices: ["MIT", "Apache 2.0", "GNU GPLv3", "None"]
+        choices: ["MIT", "GNU GPL 2.0", "Apache 2.0", "GNU GPL 3.0", "None"]
       },
       {
         type: 'confirm',
@@ -119,15 +118,15 @@ const writeFile = data => {
 
 // function call to initialize program
 questions()
-// getting user answers 
+
 .then(answers => {
     return generateMarkdown(answers);
 })
-// using data to display on page 
+// writing answers to new file 
 .then(data => {
     return writeFile(data);
 })
-// catching errors 
+
 .catch(err => {
     console.log(err)
 })

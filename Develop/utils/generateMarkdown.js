@@ -1,32 +1,36 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
+function returnLicenseBadge(license) {
   if (license === "") {
     return "";
   } else {
-    return `![${license}](${renderLicenseLink(license)})`
+    return `![${license}](${returnLicenseLink(license)})`
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function returnLicenseLink(license) {
   switch (license) {
     case "MIT":
-      return "https://img.shields.io/apm/l/MIT";
+      return "https://img.shields.io/badge/MIT-license-green";
     case "Apache 2.0":
-      return "https://img.shields.io/badge/license-Apache-green"
-    case "GNU GPLv3":
-      return "https://img.shields.io/badge/license-GPL-green"
+      return "https://img.shields.io/badge/Apache2.0-license-green"
+    case "GNU GPL 2.0":
+      return "https://img.shields.io/badge/GNU%20GPL%202.0-license-green"
+      case "GNU GPL 3.0":
+        return "https://img.shields.io/badge/GNU%20GPL%203.0-license-green"
+    default:
+      return "";
   }
 }
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
+function returnLicenseSection(license) {
   if (license === "") {
     return "";
   } else {
-    return renderLicenseBadge(license);
+    return returnLicenseBadge(license);
   }
 }
 
@@ -35,7 +39,7 @@ const generateMarkdown = data => {
 
   return `# ${data.title}
 
-  ${renderLicenseSection(data.license)}
+  ${returnLicenseSection(data.license[0])}
 
   ### Description 
   ${data.description}
@@ -45,22 +49,33 @@ const generateMarkdown = data => {
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Contributing](#contributing)
+  * [Contribute](#contribute)
   * [Tests](#tests)
   * [Questions](#questions)
   
+  
   ## Installation 
   ${data.installation}
+
+
   ## Usage 
   ${data.usage}
+
+
   ## License 
-  This project is licensed under ${renderLicenseSection(data.license[0])} 
-  ## Contributions
+  ${returnLicenseSection(data.license[0])} 
+
+
+  ## Contribute
   ${data.contribute}
+
+
   ## Tests
   ${data.tests}
+
+
   ## Questions
-  If you have any questions about this projects, please contact me directly at ${data.questions}. You can view more of my projects at https://github.com/${data.username}.
+  For any questions about this project, contact me at ${data.questions}. Or on github https://github.com/${data.username}.
 `;
 }
 
