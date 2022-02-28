@@ -111,7 +111,7 @@ const writeFile = data => {
             return;
         // when the README has been created 
         } else {
-            console.log("Your README has been successfully created!")
+            console.log("Your README has been created!")
         }
     })
 }; 
